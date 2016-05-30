@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum WeatherIcon: String {
     
@@ -21,5 +22,9 @@ enum WeatherIcon: String {
     case PartlyCloudyDay = "partly-cloudy-day"
     case PartlyCloudyNight = "partly-cloudy-night"
     case UnexpectedType = "default"
+    
+}
+
+extension WeatherIcon {
     
 }
