@@ -21,7 +21,11 @@ enum WeatherIcon: String {
     case Cloudy = "cloudy"
     case PartlyCloudyDay = "partly-cloudy-day"
     case PartlyCloudyNight = "partly-cloudy-night"
-    case UnexpectedType = "default"
+    case UnexpectedType = "default" // Added to prevent unexpected results
+    
+    init(rawValue: String) {
+        
+    }
     
 }
 
