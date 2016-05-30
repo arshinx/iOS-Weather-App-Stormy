@@ -26,5 +26,8 @@ enum WeatherIcon: String {
 }
 
 extension WeatherIcon {
+    var image: UIImage {
+        return UIImage(named: rawValue)!
+    }
     
 }
