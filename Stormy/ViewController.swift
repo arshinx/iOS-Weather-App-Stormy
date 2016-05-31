@@ -18,8 +18,8 @@ extension CurrentWeather {
     }
     
     var precipitationProbabilityString: String {
-        
-        return "\()"
+        let percentageValue = Int(precipitationProbability * 100)
+        return "\(percentageValue)%"
     }
     
 }
