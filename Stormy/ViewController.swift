@@ -46,8 +46,12 @@ class ViewController: UIViewController {
         display(currentWeather)
         
         
-        let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)")
+        let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)/")
         let forecastURL = NSURL(string: "37.8267,-122.423", relativeToURL: baseURL)
+        
+        // Incorrect Approach
+        let weatherData = NSData(contentsOfURL: forecastURL!)
+        let json = try! NSJSONSerialization.JSONObjectWithData(weatherData!, options: []) as! [String: AnyObject]
         
         
     }
