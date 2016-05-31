@@ -6,7 +6,26 @@
 
 import UIKit
 
+extension CurrentWeather {
+    
+    var temperatureString: String {
+        return "\(Int(temperature))º"
+    }
+    
+    var humidityString: String {
+        let percentageValue = Int(humidity * 100)
+        return "\(percentageValue)%"
+    }
+    
+    var precipitationProbabilityString: String {
+        
+        return "\()"
+    }
+    
+}
+
 class ViewController: UIViewController {
+    
     
     @IBOutlet weak var currentTemperatureLabel: UILabel!
     @IBOutlet weak var currentHumidityLabel: UILabel!
@@ -22,11 +41,12 @@ class ViewController: UIViewController {
         
         let icon = WeatherIcon.PartlyCloudyDay.image
         let currentWeather = CurrentWeather(temperature: 56.0, humidity: 1.0, precipitationProbability: 1.0, summary: "Wet and Rainy!", icon: icon)
+        display(currentWeather)
     }
 
     func display(weather: CurrentWeather) {
         
-        currentTemperatureLabel.text = "\(weather.temperature)"
+        currentTemperatureLabel.text = weather.temperatureString
     }
 
 
