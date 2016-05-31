@@ -45,7 +45,9 @@ class ViewController: UIViewController {
         let currentWeather = CurrentWeather(temperature: 56.0, humidity: 1.0, precipitationProbability: 1.0, summary: "Wet and Rainy!", icon: icon)
         display(currentWeather)
         
-        let forecastURL = NSURL(string: "https://api.forecast.io/forecast/01ba71cbdee446dda597b43faeb55602/37.8267,-122.423")
+        
+        let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)")
+        let forecastURL = NSURL(string: "37.8267,-122.423", relativeToURL: baseURL)
         
         
     }
