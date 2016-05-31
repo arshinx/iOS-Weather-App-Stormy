@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    private let forecastAPIKey = "01ba71cbdee446dda597b43faeb55602"
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,10 @@ class ViewController: UIViewController {
         let icon = WeatherIcon.PartlyCloudyDay.image
         let currentWeather = CurrentWeather(temperature: 56.0, humidity: 1.0, precipitationProbability: 1.0, summary: "Wet and Rainy!", icon: icon)
         display(currentWeather)
+        
+        let forecastURL = NSURL(string: "https://api.forecast.io/forecast/01ba71cbdee446dda597b43faeb55602/37.8267,-122.423")
+        
+        
     }
 
     func display(weather: CurrentWeather) {
