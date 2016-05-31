@@ -19,12 +19,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let icon = WeatherIcon.PartlyCloudyDay.image
+        let currentWeather = CurrentWeather(temperature: 56.0, humidity: 1.0, precipitationProbability: 1.0, summary: "Wet and Rainy!", icon: icon)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func display(weather: CurrentWeather) {
+        
+        currentTemperatureLabel.text = "\(weather.temperature)"
     }
 
 

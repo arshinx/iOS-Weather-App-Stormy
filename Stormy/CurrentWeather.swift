@@ -13,7 +13,7 @@ struct CurrentWeather {
     
     let temperature: Double
     let humidity: Double
-    let precipitationProperty: Double
+    let precipitationProbability: Double
     let summary: String
     let icon: UIImage
 }
