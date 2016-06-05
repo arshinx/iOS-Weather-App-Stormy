@@ -6,8 +6,9 @@
 //  Copyright © 2016 Arshin Jain. All rights reserved.
 //
 
+
 import Foundation
-import UIKit
+import UIKit // UIImage
 
 struct CurrentWeather {
     
