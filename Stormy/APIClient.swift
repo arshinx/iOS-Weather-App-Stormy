@@ -21,4 +21,7 @@ protocol APIClient {
     
     func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion -> Void) -> JSONTask
     
+    // Create and update data from the request object provided by us
+    
+    
 }
