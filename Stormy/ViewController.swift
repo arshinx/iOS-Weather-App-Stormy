@@ -53,7 +53,12 @@ class ViewController: UIViewController {
         //let weatherData = NSData(contentsOfURL: forecastURL!)
         //let json = try! NSJSONSerialization.JSONObjectWithData(weatherData!, options: []) as! [String: AnyObject]
         
-        // Asynchronous Approach
+        // Asynchronous Approach -- NSURLSessionCollection and related set of classes; 
+        // NSURLSessionTask (DataTask: returns data directly, DownloadTask: downloads data
+        
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: configuration)
+        
         
         
     }
