@@ -9,6 +9,7 @@
 import Foundation
 
 public let TRENetworkingErrorDomain = "com.Arshin.Stormy.NetworkingError"
+public let MissingHTTPResponseError: Int = 10
 
 typealias JSON = [String: AnyObject]
 typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
@@ -37,11 +38,22 @@ protocol APIClient {
 
 extension APIClient {
     
-    func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion -> Void) -> JSONTask {
+    func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion) -> JSONTask {
         
         let task = session.dataTaskWithRequest(request) { data, response, error in
             
             guard let HTTPResponse = response as? NSHTTPURLResponse else {
+                
+                let userInfo = [
+                    NSLocalizedDescriptionKey: NSLocalizedString("Missing HTTP Response", comment: "")
+                ]
+                
+                let error = NSError(domain: TRENetworkingErrorDomain, code: MissingHTTPResponseError, userInfo: userInfo)
+                completion(nil, nil, error)
+                
+                return
+                
+                
                 
             }
         }
