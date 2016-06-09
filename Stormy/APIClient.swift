@@ -12,9 +12,9 @@ typealias JSON = [String: AnyObject]
 typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
 typealias JSONTask = NSURLSessionDataTask
 
-enum APIResult {
-    case success
-    case failure
+enum APIResult<T> {
+    case Success(T)
+    case Failure(ErrorType) // Use Swift's error class and Obj-C's error object
 }
 
 protocol APIClient {
