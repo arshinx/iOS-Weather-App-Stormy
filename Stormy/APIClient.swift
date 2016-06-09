@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol APIClient {
+    
+    var configuration: NSURLSessionConfiguration { get }
+    var session: NSURLSession { get }
+    
+    init(config: NSURLSessionConfiguration)
+    
+}
