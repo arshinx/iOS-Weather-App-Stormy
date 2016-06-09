@@ -45,22 +45,6 @@ class ViewController: UIViewController {
         let currentWeather = CurrentWeather(temperature: 56.0, humidity: 1.0, precipitationProbability: 1.0, summary: "Wet and Rainy!", icon: icon)
         display(currentWeather)
         
-        
-        let baseURL = NSURL(string: "https://api.forecast.io/forecast/\(forecastAPIKey)/")
-        let forecastURL = NSURL(string: "37.8267,-122.423", relativeToURL: baseURL)
-        
-        // Incorrect Approach -- Synchronous
-        //let weatherData = NSData(contentsOfURL: forecastURL!)
-        //let json = try! NSJSONSerialization.JSONObjectWithData(weatherData!, options: []) as! [String: AnyObject]
-        
-        // Asynchronous Approach -- NSURLSessionCollection and related set of classes; 
-        // NSURLSessionTask (DataTask: returns data directly, DownloadTask: downloads data
-        
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: configuration)
-        
-        
-        
     }
 
     func display(weather: CurrentWeather) {
