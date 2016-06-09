@@ -8,6 +8,8 @@
 
 import Foundation
 
+public let TRENetworkingErrorDomain = "com.Arshin.Stormy.NetworkingError"
+
 typealias JSON = [String: AnyObject]
 typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
 typealias JSONTask = NSURLSessionDataTask
