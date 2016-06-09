@@ -27,6 +27,25 @@ protocol APIClient {
     func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion -> Void) -> JSONTask
     
     // Create and update data from the request object provided by us
+    func fetch<T>(request:NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void)
     
+    
+}
+
+
+extension APIClient {
+    
+    func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion -> Void) -> JSONTask {
+        
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            guard let HTTPResponse = response as? NSHTTPURLResponse else {
+                
+            }
+        }
+        
+        return task
+        
+    }
     
 }
