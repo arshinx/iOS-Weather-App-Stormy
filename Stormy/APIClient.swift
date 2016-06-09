@@ -55,6 +55,14 @@ extension APIClient {
                 
                 // error checking
                 
+                if data == nil {
+                    
+                    
+                    
+                } else {
+                    
+                }
+                
             }
         }
         
