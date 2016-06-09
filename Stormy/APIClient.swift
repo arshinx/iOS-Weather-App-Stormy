@@ -8,11 +8,17 @@
 
 import Foundation
 
+typealias JSON = [String: AnyObject]
+typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
+typealias JSONTask = NSURLSessionDataTask
+
 protocol APIClient {
     
     var configuration: NSURLSessionConfiguration { get }
     var session: NSURLSession { get }
     
     init(config: NSURLSessionConfiguration)
+    
+    func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion -> Void) -> JSONTask
     
 }
