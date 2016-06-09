@@ -12,6 +12,11 @@ typealias JSON = [String: AnyObject]
 typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
 typealias JSONTask = NSURLSessionDataTask
 
+enum APIResult {
+    case success
+    case failure
+}
+
 protocol APIClient {
     
     var configuration: NSURLSessionConfiguration { get }
