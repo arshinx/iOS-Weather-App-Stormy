@@ -51,15 +51,23 @@ extension APIClient {
                 let error = NSError(domain: TRENetworkingErrorDomain, code: MissingHTTPResponseError, userInfo: userInfo)
                 completion(nil, nil, error)
                 
-                return
+                return // transfers control to bottom task
                 
                 // error checking
                 
                 if data == nil {
                     
-                    
+                    if let error = error {
+                        completion(nil, HTTPResponse, error )
+                    }
                     
                 } else {
+                    switch HTTPResponse.statusCode {
+                    case 200:
+                        do {
+                            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+                        }
+                    }
                     
                 }
                 
@@ -71,3 +79,16 @@ extension APIClient {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
