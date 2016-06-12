@@ -59,7 +59,11 @@ extension APIClient {
                 }
             } else {
                 switch HTTPResponse.statusCode {
-                
+                case 200:
+                    do {
+                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [String : AnyObject]
+                        completion(json, HTTPResponse, nil)
+                    } 
                 }
             }
         }
