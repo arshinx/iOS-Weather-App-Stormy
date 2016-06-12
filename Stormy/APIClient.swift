@@ -63,7 +63,10 @@ extension APIClient {
                     do {
                         let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [String : AnyObject]
                         completion(json, HTTPResponse, nil)
-                    } 
+                    } catch let error as NSError {
+                        completion(nil, HTTPResponse, error)
+                    }
+                
                 }
             }
         }
