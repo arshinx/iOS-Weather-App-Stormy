@@ -58,6 +58,7 @@ extension APIClient {
                     completion(nil, HTTPResponse, error)
                 }
             } else {
+                switch HTTPResponse.statusCode {
                 
                 }
             }
