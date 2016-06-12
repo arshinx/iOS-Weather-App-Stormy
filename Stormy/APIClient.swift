@@ -37,58 +37,32 @@ protocol APIClient {
 
 
 extension APIClient {
-    
     func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion) -> JSONTask {
         
         let task = session.dataTaskWithRequest(request) { data, response, error in
             
             guard let HTTPResponse = response as? NSHTTPURLResponse else {
-                
                 let userInfo = [
                     NSLocalizedDescriptionKey: NSLocalizedString("Missing HTTP Response", comment: "")
                 ]
                 
                 let error = NSError(domain: TRENetworkingErrorDomain, code: MissingHTTPResponseError, userInfo: userInfo)
                 completion(nil, nil, error)
-                
-                return // transfers control to bottom task
-                
+                return
+            }
+            
                 // error checking
                 
-                if data == nil {
-                    
-                    if let error = error {
-                        completion(nil, HTTPResponse, error )
-                    }
-                    
-                } else {
-                    switch HTTPResponse.statusCode {
-                    case 200:
-                        do {
-                            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
-                        }
-                    }
-                    
+            if data == nil {
+                if let error = error {
+                    completion(nil, HTTPResponse, error)
                 }
+            } else {
                 
+                }
             }
         }
         
         return task
-        
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
