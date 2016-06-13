@@ -66,7 +66,9 @@ extension APIClient {
                     } catch let error as NSError {
                         completion(nil, HTTPResponse, error)
                     }
+                // if error code is not 200
                 default: print("Received HTTP Response: \(HTTPResponse.statusCode) - not handled")
+                    
                 } // end else --
             }
         }
