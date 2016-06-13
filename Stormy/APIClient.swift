@@ -80,6 +80,15 @@ extension APIClient {
         
         let task = JSONTaskWithRequest(request) { json, response, error in
             
+            guard let json = json else {
+                if let error = error {
+                    completion(.Failure(error))
+                } else { // if both are nil
+                    // TODO: Implement Error Handling
+                }
+            return // completion handler has return type void -- leave scope
+            }
+            
         }
         
         task.resume()
