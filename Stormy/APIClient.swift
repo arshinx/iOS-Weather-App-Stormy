@@ -75,15 +75,13 @@ extension APIClient {
         
         return task
     }
+
+    func fetch<T>(request:NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void) {
+        
+        JSONTaskWithRequest(request, completion: completion)
+        
+        
+    }
+
+
 }
-
-
-func fetch<T>(request:NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void) {
-    
-    
-    
-    
-}
-
-
-
