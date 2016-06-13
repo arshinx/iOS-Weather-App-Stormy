@@ -78,8 +78,12 @@ extension APIClient {
 }
 
 
-
-
+func fetch<T>(request:NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void) {
+    
+    
+    
+    
+}
 
 
 
