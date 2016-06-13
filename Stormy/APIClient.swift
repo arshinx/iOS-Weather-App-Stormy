@@ -82,6 +82,8 @@ extension APIClient {
             
         }
         
+        task.resume()
+        
         
     }
 
