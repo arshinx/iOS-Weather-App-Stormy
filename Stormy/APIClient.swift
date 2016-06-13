@@ -10,6 +10,7 @@ import Foundation
 
 public let TRENetworkingErrorDomain = "com.Arshin.Stormy.NetworkingError"
 public let MissingHTTPResponseError: Int = 10
+public let UnexpectedResponseError: Int = 20
 
 typealias JSON = [String: AnyObject]
 typealias JSONTaskCompletion = (JSON?, NSHTTPURLResponse?, NSError?) -> Void
@@ -89,6 +90,12 @@ extension APIClient {
             return // completion handler has return type void -- leave scope
             }
             
+            if let value = parse(json) {
+                completion(.Success(value))
+            } else {
+                let error = NSError(domain: TRENetworkingErrorDomain, code: UnexpectedResponseError, userInfo: nil)
+            }
+            
         }
         
         task.resume()
@@ -98,3 +105,14 @@ extension APIClient {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
