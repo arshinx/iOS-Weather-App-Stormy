@@ -51,7 +51,7 @@ extension APIClient {
                 return
             }
             
-                // error checking
+            // error checking -- We may receive a 500 response
                 
             if data == nil {
                 if let error = error {
