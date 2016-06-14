@@ -34,10 +34,11 @@ enum Forecast: Endpoint {
     }
 }
 
+
+
 final class ForecastAPIClient: APIClient {
-   
-    let configuration: NSURLSessionConfiguration
     
+    let configuration: NSURLSessionConfiguration
     lazy var session: NSURLSession = {
         return NSURLSession(configuration: self.configuration)
     }()
@@ -54,13 +55,12 @@ final class ForecastAPIClient: APIClient {
     }
     
     func fetchCurrentWeather(coordinate: Coordinate, completion: APIResult<CurrentWeather> -> Void) {
-        
         let request = Forecast.Current(token: self.token, coordinate: coordinate).request
         
         fetch(request, parse: { json -> CurrentWeather? in
-            // Parse from JSON response to weather
+            // Parse from JSON response to CurrentWeather
             
-            if let currentWeatherDictionary = json["currently"] as? [String: AnyObject] {
+            if let currentWeatherDictionary = json["currently"] as? [String : AnyObject] {
                 return CurrentWeather(JSON: currentWeatherDictionary)
             } else {
                 return nil
@@ -68,7 +68,6 @@ final class ForecastAPIClient: APIClient {
             
             }, completion: completion)
     }
-    
 }
 
 
