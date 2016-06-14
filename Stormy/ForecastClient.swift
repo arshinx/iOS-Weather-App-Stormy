@@ -13,6 +13,11 @@ struct Coordinate {
     let longitude: Double
 }
 
+// Make it easy to interact with ForecastClient
+enum Forecast {
+    case Current
+}
+
 final class ForecastAPIClient: APIClient {
    
     let configuration: NSURLSessionConfiguration
