@@ -57,11 +57,13 @@ final class ForecastAPIClient: APIClient {
         
         let request = Forecast.Current(token: self.token, coordinate: coordinate).request
         
-        fetch(request, parse: { (json) -> CurrentWeather? in
+        fetch(request, parse: { json -> CurrentWeather? in
             // Parse from JSON response to weather
             
             if let currentWeatherDictionary = json["currently"] as? [String: AnyObject] {
                 return CurrentWeather(JSON: currentWeatherDictionary)
+            } else {
+                return nil
             }
             
             }, completion: completion)
