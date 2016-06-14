@@ -17,4 +17,9 @@ final class ForecastAPIClient: APIClient {
     
     private let token: String
     
+    init(config: NSURLSessionConfiguration, APIKey: String) {
+        self.configuration = config
+        self.token = APIKey
+    }
+    
 }
