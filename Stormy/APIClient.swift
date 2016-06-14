@@ -94,6 +94,7 @@ extension APIClient {
                 completion(.Success(value))
             } else {
                 let error = NSError(domain: TRENetworkingErrorDomain, code: UnexpectedResponseError, userInfo: nil)
+                completion(.Failure(error))
             }
             
         }
