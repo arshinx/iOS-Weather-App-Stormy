@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+final class ForecastAPIClient: APIClient {
+    
+}
