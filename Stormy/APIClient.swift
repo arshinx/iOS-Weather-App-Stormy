@@ -36,6 +36,10 @@ protocol APIClient {
     
 }
 
+protocol JSONDecodable {
+    init?(JSON: [String: AnyObject])
+}
+
 protocol Endpoint {
     var baseURL: NSURL          { get }
     var path: String            { get }
