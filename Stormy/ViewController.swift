@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private let forecastAPIKey = "01ba71cbdee446dda597b43faeb55602"
-    let forecastAPIClient = ForecastAPIClient(APIKey: "01ba71cbdee446dda597b43faeb55602")
+    
+    lazy var forecastAPIClient = ForecastAPIClient(APIKey: "01ba71cbdee446dda597b43faeb55602")
     let coordinate = Coordinate(latitude: -40.04, longitude: 74.0)
     
 

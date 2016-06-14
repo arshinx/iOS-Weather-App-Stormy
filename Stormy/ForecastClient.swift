@@ -13,7 +13,6 @@ struct Coordinate {
     let longitude: Double
 }
 
-// Make it easy to interact with ForecastClient
 enum Forecast: Endpoint {
     case Current(token: String, coordinate: Coordinate)
     
@@ -23,8 +22,8 @@ enum Forecast: Endpoint {
     
     var path: String {
         switch self {
-        case .Current(let token, let Coordinate):
-            return "/forecast/\(token)/\(Coordinate.latitude),\(Coordinate.longitude)"
+        case .Current(let token, let coordinate):
+            return "/forecast/\(token)/\(coordinate.latitude),\(coordinate.longitude)"
         }
     }
     
@@ -33,8 +32,6 @@ enum Forecast: Endpoint {
         return NSURLRequest(URL: url)
     }
 }
-
-
 
 final class ForecastAPIClient: APIClient {
     
@@ -71,30 +68,14 @@ final class ForecastAPIClient: APIClient {
 }
 
 
-extension CurrentWeather: JSONDecodable {
-    
-    
-    init?(JSON: [String : AnyObject]) {
-        guard let temperature       = JSON["temperature"] as? Double,
-        humidity                    = JSON["humidity"] as? Double,
-        precipitationProbability    = JSON["precipitationProbability"] as? Double,
-        summary                     = JSON["summary"] as? String,
-        iconString                  = JSON["icon"] as? String else {
-                return nil
-        }
-        
-        let icon = WeatherIcon(rawValue: iconString).image
-        
-        self.temperature                = temperature
-        self.humidity                   = humidity
-        self.precipitationProbability   = precipitationProbability
-        self.summary                    = summary
-        self.icon                       = icon
-        
-        
-    }
-    
-}
+
+
+
+
+
+
+
+
 
 
 
