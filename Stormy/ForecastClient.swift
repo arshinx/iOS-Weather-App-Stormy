@@ -61,7 +61,7 @@ final class ForecastAPIClient: APIClient {
             // Parse from JSON response to weather
             
             if let currentWeatherDictionary = json["currently"] as? [String: AnyObject] {
-                
+                return CurrentWeather(JSON: currentWeatherDictionary)
             }
             
             }, completion: <#T##APIResult<T> -> Void#>)
@@ -83,6 +83,13 @@ extension CurrentWeather: JSONDecodable {
         }
         
         let icon = WeatherIcon(rawValue: iconString).image
+        
+        self.temperature                = temperature
+        self.humidity                   = humidity
+        self.precipitationProbability   = precipitationProbability
+        self.summary                    = summary
+        self.icon                       = icon
+        
         
     }
     
