@@ -9,5 +9,8 @@
 import Foundation
 
 final class ForecastAPIClient: APIClient {
+   
+    let configuration: NSURLSessionConfiguration
+    let session: NSURLSession
     
 }
