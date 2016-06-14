@@ -122,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 97F14FE01CB9EEB20065EE08 /* Build configuration list for PBXProject "Stormy" */;
+			buildConfigurationList = 97F14FE01CB9EEB20065EE08 /* Build configuration list for PBXProject "Tibbit Weather" */;
 			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -303,7 +303,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		97F14FE01CB9EEB20065EE08 /* Build configuration list for PBXProject "Stormy" */ = {
+		97F14FE01CB9EEB20065EE08 /* Build configuration list for PBXProject "Tibbit Weather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97F14FF51CB9EEB20065EE08 /* Debug */,

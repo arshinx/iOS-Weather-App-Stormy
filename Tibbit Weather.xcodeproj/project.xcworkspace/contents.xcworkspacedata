@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Stormy.xcodeproj">
+      location = "self:/Users/Arshin/Desktop/iOS Projects/Tibbit/Stormy/Tibbit Weather.xcodeproj">
    </FileRef>
 </Workspace>

@@ -36,14 +36,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let forecastAPIKey = "01ba71cbdee446dda597b43faeb55602"
+    let forecastAPIClient = ForecastAPIClient(APIKey: "01ba71cbdee446dda597b43faeb55602")
+    let coordinate = Coordinate(latitude: -40.04, longitude: 74.0)
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let icon = WeatherIcon.PartlyCloudyDay.image
-        let currentWeather = CurrentWeather(temperature: 56.0, humidity: 1.0, precipitationProbability: 1.0, summary: "Wet and Rainy!", icon: icon)
-        display(currentWeather)
+        forecastAPIClient.fetchCurrentWeather(coordinate) { result in
+            switch result {
+            case .Success(let currentWeather):
+                self.display(currentWeather)
+                
+            case .Failure(let error as NSError):
+                self.showAlert("Unable to retrieve forecast!", message: error.localizedDescription)
+                
+            default:
+                break
+            }
+        }
         
     }
 
@@ -54,6 +65,17 @@ class ViewController: UIViewController {
         currentHumidityLabel.text = weather.humidityString
         currentSummaryLabel.text = weather.summary
         currentWeatherIcon.image = weather.icon
+    }
+    
+    func showAlert(title: String, message: String?, style: UIAlertControllerStyle = .Alert) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        let dismissAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        
+        alertController.addAction(dismissAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
     }
 
 
