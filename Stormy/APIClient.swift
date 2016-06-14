@@ -37,7 +37,9 @@ protocol APIClient {
 }
 
 protocol Endpoint {
-    <#requirements#>
+    var baseURL: NSURL          { get }
+    var path: String            { get }
+    var request: NSURLRequest   { get }
 }
 
 
