@@ -64,7 +64,7 @@ final class ForecastAPIClient: APIClient {
                 return CurrentWeather(JSON: currentWeatherDictionary)
             }
             
-            }, completion: <#T##APIResult<T> -> Void#>)
+            }, completion: completion)
     }
     
 }
