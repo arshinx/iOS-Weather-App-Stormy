@@ -34,6 +34,8 @@ final class ForecastAPIClient: APIClient {
     
     func fetchCurrentWeather(coordinate: Coordinate, completion: APIResult<CurrentWeather> -> Void) {
         
+        
+        
     }
     
 }

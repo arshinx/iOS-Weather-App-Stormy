@@ -36,6 +36,10 @@ protocol APIClient {
     
 }
 
+protocol Endpoint {
+    <#requirements#>
+}
+
 
 extension APIClient {
     
