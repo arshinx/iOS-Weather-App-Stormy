@@ -26,7 +26,7 @@ protocol APIClient {
     var configuration: NSURLSessionConfiguration { get }
     var session: NSURLSession { get }
     
-    //init(config: NSURLSessionConfiguration)
+    init(config: NSURLSessionConfiguration, APIKey: String)
     
     func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion -> Void) -> JSONTask
     
