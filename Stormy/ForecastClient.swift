@@ -82,6 +82,8 @@ extension CurrentWeather: JSONDecodable {
                 return nil
         }
         
+        let icon = WeatherIcon(rawValue: iconString).image
+        
     }
     
 }
