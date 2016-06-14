@@ -22,4 +22,8 @@ final class ForecastAPIClient: APIClient {
         self.token = APIKey
     }
     
+    convenience init(APIKey: String) {
+        self.init(config: NSURLSessionConfiguration.defaultSessionConfiguration(), APIKey: APIKey)
+    }
+    
 }
