@@ -11,6 +11,7 @@ import Foundation
 final class ForecastAPIClient: APIClient {
    
     let configuration: NSURLSessionConfiguration
+    
     lazy var session: NSURLSession = {
         return NSURLSession(configuration: self.configuration)
     }()
