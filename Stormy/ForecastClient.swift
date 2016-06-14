@@ -74,11 +74,11 @@ extension CurrentWeather: JSONDecodable {
     
     
     init?(JSON: [String : AnyObject]) {
-        guard let temperature = JSON["temperature"] as? Double,
+        guard let temperature       = JSON["temperature"] as? Double,
         humidity                    = JSON["humidity"] as? Double,
         precipitationProbability    = JSON["precipitationProbability"] as? Double,
         summary                     = JSON["summary"] as? String,
-            iconString = JSON["icon"] as? String else {
+        iconString                  = JSON["icon"] as? String else {
                 return nil
         }
         
