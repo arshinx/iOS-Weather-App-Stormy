@@ -31,7 +31,7 @@ protocol APIClient {
     func JSONTaskWithRequest(request: NSURLRequest, completion: JSONTaskCompletion -> Void) -> JSONTask
     
     // Create and update data from the request object provided by us
-    func fetch<T>(request:NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void)
+    func fetch<T: JSONDecodable>(request:NSURLRequest, parse: JSON -> T?, completion: APIResult<T> -> Void)
     
     
 }
