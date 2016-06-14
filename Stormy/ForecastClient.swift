@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct coordinate {
+struct Coordinate {
     let latitude: Double
     let longitude: Double
 }
@@ -32,6 +32,8 @@ final class ForecastAPIClient: APIClient {
         self.init(config: NSURLSessionConfiguration.defaultSessionConfiguration(), APIKey: APIKey)
     }
     
-    func fetchCurrentWeather
+    func fetchCurrentWeather(coordinate: Coordinate, completion: APIResult<CurrentWeather> -> Void) {
+        
+    }
     
 }
