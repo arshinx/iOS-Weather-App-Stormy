@@ -37,11 +37,19 @@ class ViewController: UIViewController {
     
     
     lazy var forecastAPIClient = ForecastAPIClient(APIKey: "01ba71cbdee446dda597b43faeb55602")
-    let coordinate = Coordinate(latitude: -40.04, longitude: 74.0)
+    let coordinate = Coordinate(latitude: 37.424199, longitude: -122.169168)
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+    }
+    
+    // retrieves weather data
+    
+    func fetchCurrentWeather() {
         
         forecastAPIClient.fetchCurrentWeather(coordinate) { result in
             switch result {
