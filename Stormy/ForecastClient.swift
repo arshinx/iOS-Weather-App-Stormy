@@ -9,7 +9,8 @@
 import Foundation
 
 struct coordinate {
-    
+    let latitude: Double
+    let longitude: Double
 }
 
 final class ForecastAPIClient: APIClient {
