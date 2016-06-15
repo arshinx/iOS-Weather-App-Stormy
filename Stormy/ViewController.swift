@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        fetchCurrentWeather()
         
     }
     
@@ -52,7 +52,11 @@ class ViewController: UIViewController {
     func fetchCurrentWeather() {
         
         forecastAPIClient.fetchCurrentWeather(coordinate) { result in
+            
+            self.toggleRefreshAnimation(false)
+            
             switch result {
+                
             case .Success(let currentWeather):
                 self.display(currentWeather)
                 
@@ -85,7 +89,52 @@ class ViewController: UIViewController {
         presentViewController(alertController, animated: true, completion: nil)
         
     }
+    
+    
+    @IBAction func refreshWeather(sender: AnyObject) {
+        
+        toggleRefreshAnimation(true)
+        fetchCurrentWeather()
+        
+    }
+    
+    func toggleRefreshAnimation(on: Bool) {
+        refreshButton.hidden = on
+        
+        if on {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
